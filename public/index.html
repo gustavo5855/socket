@@ -14,12 +14,12 @@
         <div class="messages">
 
         </div>
-        <input type="text" name="message" placeholder="Digite sua mensagem">
+        <input id="message" type="text" name="message" placeholder="Digite sua mensagem">
         <button type="submit">Enviar</button>
     </form>
 
     <script type="text/javascript">
-        var socket = io('http://localhost:3000');
+        var socket = io('https://3000-cc765012-2416-49a5-b527-f2779a45954b.ws-us02.gitpod.io/');
 
         function renderMessages(message) {
             $('.messages').append(`<div class="message"><strong>${message.author}</strong>: ${message.message}</div>`)
@@ -40,6 +40,8 @@
 
             var author = $('input[name=username]').val();
             var message = $('input[name=message]').val();
+
+            $('input[name=message]').val('');
 
             if ( author.length && message.length ) {
                 var messageObject = {
